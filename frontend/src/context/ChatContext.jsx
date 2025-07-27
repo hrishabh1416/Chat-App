@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import { io } from 'socket.io-client';
 import {AuthContext} from './AuthContext'
 const backendUrl = 'http://localhost:5000';
 axios.defaults.baseURL = backendUrl;
