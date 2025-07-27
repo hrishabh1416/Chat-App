@@ -6,7 +6,7 @@ import { Route, Routes, BrowserRouter, useLocation, Navigate } from 'react-route
 import { AuthContext, AuthProvider } from './context/AuthContext.jsx'
 import { Toaster } from 'react-hot-toast'
 import { ChatProvider } from './context/ChatContext.jsx'
-import backgroundImage from './assets/background1.jpg' // ✅ import image
+import backgroundImage from './assets/background1.jpg' 
 
 const MainApp = () => {
   const location = useLocation();

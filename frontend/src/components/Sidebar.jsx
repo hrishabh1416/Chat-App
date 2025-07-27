@@ -5,6 +5,7 @@ import { AuthContext } from '../context/AuthContext.jsx'
 import {ChatContext} from '../context/ChatContext'
 const Sidebar = () => {
   const navigate=useNavigate();
+  const [showMenu, setShowMenu] = useState(false);
   const{getUsers,users,selecteduser,setselecteduser,unseenMessages,setUnseenMessages}=useContext(ChatContext)
   const {logout,onlineUsers}=useContext(AuthContext);
   const[input,setInput]=useState(false);
@@ -17,14 +18,20 @@ const Sidebar = () => {
     <div className='pb-5'>
       <div className='flex justify-between items-center'>
         <img src={assets.logo} className='max-w-40'></img>
-        <div className='relative py-2 group'>
-          <img src={assets.menu_icon} className='max-h-5 cursor-pointer'></img>
-          <div className='absolute top-full right-0 z-20 w-32 p-5 rounded-md bg-[#282142] border border-gray-600 text-white-100 hidden group-hover:block'>
-            <p onClick={()=>navigate('/profile')} className='cursor-pointer text-sm'>Edit Profile</p>
-            <hr className='my-2 border-t border-gray-500'/>
-            <p onClick={()=>logout()} className='cursor-pointer text-sm'>Logout</p>
-          </div>
-        </div>
+        <div className='relative py-2'>
+  <img 
+    src={assets.menu_icon} 
+    className='max-h-5 cursor-pointer' 
+    onClick={() => setShowMenu(!showMenu)} 
+  />
+  {showMenu && (
+    <div className='absolute top-full right-0 z-20 w-32 p-5 rounded-md bg-[#282142] border border-gray-600 text-white'>
+      <p onClick={() => { setShowMenu(false); navigate('/profile') }} className='cursor-pointer text-sm'>Edit Profile</p>
+      <hr className='my-2 border-t border-gray-500'/>
+      <p onClick={() => { setShowMenu(false); logout() }} className='cursor-pointer text-sm'>Logout</p>
+    </div>
+  )}
+</div>
       </div>
       <div className='bg-[#282142] roundef-full flex items-center gap-2 py-3 px-4 mt-5'>
         <img src={assets.search_icon} className='w-3'></img>
