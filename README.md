@@ -7,4 +7,5 @@ The backend is built using Node.js and Express.js, with routes for authenticatio
 The entire application is deployed using Render, enabling users to access it reliably with automatic server restarts and scalability. The frontend is developed with React.js, making the UI responsive, interactive, and easy to navigate.
 
 Live-Preview-https://drive.google.com/file/d/1ahXDNgzUetxqHqd3Y6hTIYrCyBOEIIOW/view?usp=sharing
+
 Live-Link-https://chat-app-ccqc.onrender.com
